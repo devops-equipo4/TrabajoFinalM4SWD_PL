@@ -7,7 +7,8 @@ def call(stages){
             'compile'         : 'sCompile',
             'unitTest'        : 'sUnitTest',
             'jar'             : 'sJar',
-            'gitCreateRelease': 'sGitCreateRelease',
+            'testCasePostman': 'sTestCasePostman',
+            'testCaseSelenium': 'sTestCaseSelenium',
     ]
 
     allStages()
@@ -17,7 +18,8 @@ def allStages() {
     sCompile()
     sUnitTest()
     sJar()
-    sGitCreateRelease()
+    sTestCasePostman()
+    sTestCaseSelenium()
 }
 
 def sCompile() {
@@ -41,12 +43,17 @@ def sJar() {
     }
 }
 
-def sGitCreateRelease() {
-    env.STAGE = "Stage Git Create Release"
-    stage("Stage Git Create Release") {
-        sh "git checkout feat_jenkins"
-        sh "git checkout -b release-v1-0-0"
-        sh "git push --set-upstream origin release-v1-0-0"
+def sTestCasePostman() {
+    env.STAGE = "Stage Test Case Postman (Newman)"
+    stage("$env.STAGE") {
+        sh "echo 'dummie'"
+    }
+}
+
+def sTestCaseSelenium() {
+    env.STAGE = "Stage Test Case Selenium Web Driver"
+    stage("$env.STAGE") {
+        sh "echo 'dummie'"
     }
 }
 return this;
