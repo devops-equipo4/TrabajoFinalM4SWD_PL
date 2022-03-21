@@ -10,17 +10,7 @@ def call(stages){
             'gitCreateRelease': 'sGitCreateRelease',
     ]
 
-    def stagesArray = []
-    stagesArray = validations.searchKeyInArray(stages, ";", listStagesOrder)
-
-    if (stages.isEmpty()){
-        allStages()
-    }else{
-        stagesArray.each{ stageFunction ->//variable as param
-            echo 'Ejecutando ' + stageFunction
-            "${stageFunction}"()
-        }
-    }
+    allStages()
 }
 
 def allStages() {
