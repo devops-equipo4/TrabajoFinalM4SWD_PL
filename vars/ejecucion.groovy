@@ -13,6 +13,7 @@ def call() {
                         sh "env"
                         env.STAGE = ""
                         env.PIPELINE = ""
+                        env.WEBDRIVER = "/usr/bin/chromedriver"
 
                         env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
 
