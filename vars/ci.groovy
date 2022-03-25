@@ -54,6 +54,7 @@ def sTestCaseSelenium() {
     env.STAGE = "Stage Test Case Selenium Web Driver"
     stage("$env.STAGE") {
         sh "echo 'dummie'"
+        sh "echo '$env.WEBDRIVER'"
     }
 }
 return this;
