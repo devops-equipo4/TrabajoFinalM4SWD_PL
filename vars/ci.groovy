@@ -32,7 +32,7 @@ def sCompile() {
 def sUnitTest() {
     env.STAGE = "Stage Unit Test"
     stage("$env.STAGE") {
-        sh "mvn clean test -e"
+        sh "mvn clean test -Dtest=com.devops.dxc.devops.unit.*Test\n"
     }
 }
 
@@ -47,14 +47,15 @@ def sTestCasePostman() {
     env.STAGE = "Stage Test Case Postman (Newman)"
     stage("$env.STAGE") {
         sh "echo 'dummie'"
+//        sh "newman run PruebaLab4.postman_collection.json\n"
     }
 }
 
 def sTestCaseSelenium() {
     env.STAGE = "Stage Test Case Selenium Web Driver"
     stage("$env.STAGE") {
-        sh "echo 'dummie'"
         sh "echo '$env.WEBDRIVER'"
+        sh "mvn clean test -Dtest=com.devops.dxc.devops.selenium.*Test\n"
     }
 }
 return this;
