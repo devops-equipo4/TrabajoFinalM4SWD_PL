@@ -18,9 +18,9 @@ def allStages() {
     //sCompile()
     //sUnitTest()
     //sJar()
-
-    sTestCasePostman()
-    sTestCaseSelenium()
+    //sTestCasePostman()
+    //sTestCaseSelenium()
+    sTestCaseJmeter()
 }
 
 def sCompile() {
@@ -47,10 +47,8 @@ def sJar() {
 def sTestCasePostman() {
     env.STAGE = "Stage Test Case Postman (Newman)"
     stage("$env.STAGE") {
-        //sh "mvn install"
+        sh "mvn install"
         sh "nohup mvn -f backend/pom.xml spring-boot:run & >/dev/null"
-        sh 'pwd'
-        sh 'ls -l'
         sh "sleep 60"
         sh "newman run 'Postman/Lab 4.postman_collection.json'\n"
     }
@@ -63,4 +61,14 @@ def sTestCaseSelenium() {
         sh "mvn clean test -Dtest=com.devops.dxc.devops.selenium.*Test -DfailIfNoTests=false\n"
     }
 }
+
+def sTestCaseJmeter(){
+    env.STAGE = "Stage Test Case Jmeter"
+    stage("$env.STAGE") {
+        sh "cd "
+        sh "mvn verify -Pperformance -DskipTests"
+    }
+}
+
+
 return this;
