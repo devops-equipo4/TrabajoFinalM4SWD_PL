@@ -52,7 +52,7 @@ def sTestCasePostman() {
         sh 'pwd'
         sh 'ls -l'
         sh "sleep 60"
-        sh "newman run '../Postman/Lab 4.postman_collection.json'\n"
+        sh "newman run 'Postman/Lab 4.postman_collection.json'\n"
     }
 }
 
