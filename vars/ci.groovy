@@ -47,8 +47,7 @@ def sTestCasePostman() {
     env.STAGE = "Stage Test Case Postman (Newman)"
     stage("$env.STAGE") {
         sh "mvn install"
-        sh "cd backend"
-        sh "mvn spring-boot:run"
+        sh "mvn -f backend/pom.xml spring-boot:run"
         sh "newman run '../Postman/Lab 4.postman_collection.json'\n"
     }
 }
