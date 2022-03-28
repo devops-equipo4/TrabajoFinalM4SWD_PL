@@ -50,6 +50,7 @@ def sTestCasePostman() {
         //sh "mvn install"
         sh "nohup mvn -f backend/pom.xml spring-boot:run & >/dev/null"
         sh 'pwd'
+        sh 'ls -l'
         sh "sleep 60"
         sh "newman run '../Postman/Lab 4.postman_collection.json'\n"
     }
