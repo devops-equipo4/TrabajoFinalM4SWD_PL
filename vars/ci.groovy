@@ -47,7 +47,7 @@ def sJar() {
 def sTestCasePostman() {
     env.STAGE = "Stage Test Case Postman (Newman)"
     stage("$env.STAGE") {
-        sh "mvn install"
+        //sh "mvn install"
         sh "nohup mvn -f backend/pom.xml spring-boot:run & >/dev/null"
         sh 'pwd'
         sh "sleep 60"
