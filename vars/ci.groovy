@@ -47,7 +47,7 @@ def sTestCasePostman() {
     env.STAGE = "Stage Test Case Postman (Newman)"
     stage("$env.STAGE") {
         sh "echo 'dummie'"
-//        sh "newman run PruebaLab4.postman_collection.json\n"
+        sh "newman run Postman/Lab 4.postman_collection.json\n"
     }
 }
 
