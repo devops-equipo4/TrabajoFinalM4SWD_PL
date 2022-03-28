@@ -32,7 +32,7 @@ def sCompile() {
 def sUnitTest() {
     env.STAGE = "Stage Unit Test"
     stage("$env.STAGE") {
-        sh "mvn clean test -Dtest=com.devops.dxc.devops.unit.*Test\n"
+        sh "mvn clean test -Dtest=com.devops.dxc.devops.unit.*Test -DfailIfNoTests=false\n"
     }
 }
 
@@ -55,7 +55,7 @@ def sTestCaseSelenium() {
     env.STAGE = "Stage Test Case Selenium Web Driver"
     stage("$env.STAGE") {
         sh "echo '$env.WEBDRIVER'"
-        sh "mvn clean test -Dtest=com.devops.dxc.devops.selenium.*Test\n"
+        sh "mvn clean test -Dtest=com.devops.dxc.devops.selenium.*Test -DfailIfNoTests=false\n"
     }
 }
 return this;
