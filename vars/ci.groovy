@@ -15,11 +15,11 @@ def call(stages){
 }
 
 def allStages() {
-    //sCompile()
-    //sUnitTest()
-    //sJar()
-    //sTestCasePostman()
-    //sTestCaseSelenium()
+    sCompile()
+    sUnitTest()
+    sJar()
+    sTestCasePostman()
+    sTestCaseSelenium()
     sTestCaseJmeter()
 }
 
