@@ -35,8 +35,7 @@ def sCompile() {
     def sJar() {
     env.STAGE = "Stage Jar"
     stage("$env.STAGE") {
-        //sh "mvn clean package -e -DskipTests"
-        sh "mvn install -DskipTests"
+        sh "mvn clean install -DskipTests"
     }
 }
 def sRun() {
@@ -50,7 +49,7 @@ def sRun() {
 def sUnitTest() {
     env.STAGE = "Stage Unit Test"
     stage("$env.STAGE") {
-        sh "mvn clean test -Dtest=com.devops.dxc.devops.unit.*Test -DfailIfNoTests=false\n"
+        sh "mvn -f backend/ clean test -Dtest=com.devops.dxc.devops.unit.*Test -DfailIfNoTests=false\n"
     }
 }
 
