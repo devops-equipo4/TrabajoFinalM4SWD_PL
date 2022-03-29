@@ -1,4 +1,4 @@
-# Laboratorio 3
+# Laboratorio Módulo 4
 
 En este laboratorio se está utilizando el microservicio que lo puedes encontrar en la siguiente URL:
 
