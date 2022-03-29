@@ -64,7 +64,7 @@ def sTestCaseSelenium() {
     env.STAGE = "Stage Test Case Selenium Web Driver"
     stage("$env.STAGE") {
         sh "echo '$env.WEBDRIVER'"
-        sh "mvn clean test -Dtest=com.devops.dxc.devops.selenium.*Test -DfailIfNoTests=false\n"
+        sh "mvn -f backend/ clean test -Dtest=com.devops.dxc.devops.selenium.*Test -DfailIfNoTests=false\n"
     }
 }
 
