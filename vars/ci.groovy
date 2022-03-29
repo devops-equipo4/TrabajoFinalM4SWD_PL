@@ -35,7 +35,7 @@ def sCompile() {
     env.STAGE = "Stage Jar"
     stage("$env.STAGE") {
         sh "mvn clean package -e"
-        sh "mvn install"
+        sh "mvn install -DskipTests"
     }
 }
 def sRun() {
