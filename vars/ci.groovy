@@ -34,15 +34,13 @@ def sCompile() {
     def sJar() {
     env.STAGE = "Stage Jar"
     stage("$env.STAGE") {
-        sh "mvn clean package -e"
+        sh "mvn clean package -e -DskipTests"
         sh "mvn install -DskipTests"
     }
 }
 def sRun() {
     env.STAGE = "Stage Run"
     stage("$env.STAGE") {
-        sh "mvn clean package -e"
-        sh "mvn install"
         sh "nohup mvn -f backend/pom.xml spring-boot:run & >/dev/null"
         sh "sleep 60"
     }
