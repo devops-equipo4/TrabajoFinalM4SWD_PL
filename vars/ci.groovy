@@ -27,8 +27,7 @@ def allStages() {
 def sCompile() {
     env.STAGE = "Stage Compile"
     stage("$env.STAGE") {
-        //sh "mvn clean compile -e"
-        sh "echo compile"
+        sh "mvn clean compile -e"
         }
     }
 
